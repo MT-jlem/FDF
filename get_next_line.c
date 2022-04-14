@@ -106,26 +106,3 @@ char	*get_next_line(int fd)
 	tmp = get_rest(tmp);
 	return (line);
 }
-
-#include <fcntl.h>
-#include <stdio.h>
-int main()
-{
-	int fd = open("txt.txt", O_RDONLY);
-	//int fd2 = open("txt2.txt" , O_RDONLY);
-	printf("%s",get_next_line(fd));
-	// printf("%s",get_next_line(fd));
-	// printf("%s",get_next_line(fd));
-	// printf("%s",get_next_line(fd));
-	// printf("%s",get_next_line(fd));
-	// printf("%s",get_next_line(fd));
-	// printf("%s",get_next_line(fd));
-	// printf("%s",get_next_line(fd));
-	// printf("%s",get_next_line(fd));
-	// printf("%s",get_next_line(fd));
-	// printf("%s",get_next_line(fd));
-	// printf("%s",get_next_line(fd));
-	// printf("%s",get_next_line(fd));
-	// printf("%s",get_next_line(fd));
-	// printf("%s",get_next_line(fd));
-}
