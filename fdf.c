@@ -12,6 +12,7 @@
 
 
 #include "fdf.h"
+#include <mlx.h>
 
 void	map_check(t_fdf var)
 {
@@ -173,26 +174,33 @@ t_fdf	get_map(t_fdf var, char *path)
 int	main(int ac, char **av)
 {
 	t_fdf	var;
-	
-	var.h = 0;
-	if (ac < 2)
+	// void	*img;
+	if (ac != 2)
 		exit(1);
+	var.mlx_win = NULL;
+	var.mlx = NULL;
 	var = get_map(var, av[1]);
 	map_check(var);
 	var.map = (int **) malloc (sizeof(int *) * (var.h + 1));
 	var.color = (int **) malloc (sizeof(int *) * (var.h + 1));
 	var = get_altitude(var);
 	var = get_color(var);
-	for(int i = 0; i < var.h;i++)
-	{
-		for(int j = 0; j < var.w ;j++)
-			printf("%2d ",var.map[i][j]);
-		printf("\n");
-	}
-	for(int i = 0; i < var.h;i++)
-	{
-		for(int j = 0; j < var.w ;j++)
-			printf("%2d ",var.color[i][j]);
-		printf("\n");
-	}
+	var.mlx = mlx_init();
+	var.mlx_win = mlx_new_window(var.mlx, 1920, 1080, "fdf");
+	// img = mlx_new_image(var.mlx,1920, 1080);
+	mlx_pixel_put (var.mlx, var.mlx_win, 200, 200, 16777215);
+	mlx_loop(var.mlx);
+	
 }
+	// for(int i = 0; i < var.h;i++)
+	// {
+	// 	for(int j = 0; j < var.w ;j++)
+	// 		printf("%2d ",var.map[i][j]);
+	// 	printf("\n");
+	// }
+	// for(int i = 0; i < var.h;i++)
+	// {
+	// 	for(int j = 0; j < var.w ;j++)
+	// 		printf("%2d ",var.color[i][j]);
+	// 	printf("\n");
+	// }
