@@ -12,7 +12,6 @@
 
 
 #include "fdf.h"
-#include <mlx.h>
 
 void	map_check(t_fdf var)
 {
@@ -188,7 +187,9 @@ int	main(int ac, char **av)
 	var.mlx = mlx_init();
 	var.mlx_win = mlx_new_window(var.mlx, 1920, 1080, "fdf");
 	// img = mlx_new_image(var.mlx,1920, 1080);
-	mlx_pixel_put (var.mlx, var.mlx_win, 200, 200, 16777215);
+	int i = 0;
+	int	j = 0;
+
 	mlx_loop(var.mlx);
 	
 }
