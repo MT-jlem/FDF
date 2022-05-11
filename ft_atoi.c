@@ -37,12 +37,3 @@ int	ft_atoi(char *str)
 	}
 	return (n * sign);
 }
-
-/*
-int main()
-{
-	char str[] = "--123456789";
-
-	printf("%d \n", ft_atoi(str));
-}
-*/

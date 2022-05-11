@@ -187,8 +187,8 @@ int	main(int ac, char **av)
 	var.mlx = mlx_init();
 	var.mlx_win = mlx_new_window(var.mlx, 1920, 1080, "fdf");
 	// img = mlx_new_image(var.mlx,1920, 1080);
-	int i = 0;
-	int	j = 0;
+	// int i = 0;
+	// int	j = 0;
 
 	mlx_loop(var.mlx);
 	
