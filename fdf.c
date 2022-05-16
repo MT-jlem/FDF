@@ -187,11 +187,20 @@ int	main(int ac, char **av)
 	var.mlx = mlx_init();
 	var.mlx_win = mlx_new_window(var.mlx, 1920, 1080, "fdf");
 	// img = mlx_new_image(var.mlx,1920, 1080);
-	// int i = 0;
-	// int	j = 0;
-
+	// int i = 500;
+	// int j = 500;
+	// int x = 0;
+	// int	y = 0;
+	// printf("%d---%d",var.w,var.h);
+	// while (x < var.w && y < var.h)
+	// {
+	// 	var= dda(var,i,i+100,j,j);
+	// 	i +=100;
+	// 	x++;
+	// 	y++;
+	// }
 	mlx_loop(var.mlx);
-	
+
 }
 	// for(int i = 0; i < var.h;i++)
 	// {

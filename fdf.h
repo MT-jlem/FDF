@@ -18,6 +18,7 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include <mlx.h>
+#include <math.h>
 #include "get_next_line.h"
 
 typedef struct s_fdf
@@ -34,5 +35,6 @@ typedef struct s_fdf
 char	**ft_split(char *s, char c);
 char	*ft_substr(char *s, unsigned int start, size_t len);
 int		ft_atoi(char *str);
+t_fdf dda(t_fdf var,int x1, int x2, int y1, int y2);
 
 #endif
