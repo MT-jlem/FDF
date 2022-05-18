@@ -16,4 +16,7 @@ $(NAME): $(OBJ)
 	$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
 
 fclean:
-	rm fdf *.o
+	-rm fdf *.o
+
+re: fclean all
+	

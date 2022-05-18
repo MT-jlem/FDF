@@ -13,18 +13,6 @@
 
 #include "fdf.h"
 
-void	map_check(t_fdf var)
-{
-	int	first;
-	int	i;
-
-	i = 1;
-	first = ft_strlen(var.buf[0]);
-	while(var.buf[i])
-		if(first > ft_strlen(var.buf[i++]))
-			exit (1);
-
-}
 
 t_fdf	get_altitude(t_fdf var)
 {
@@ -170,47 +158,56 @@ t_fdf	get_map(t_fdf var, char *path)
 	return (var);
 }
 
+// void	padding(t_fdf *var)
+// {
+// 	int x;
+// 	int y;
+
+// 	x = cos(1.0472) * var->h;
+// }
+
 int	main(int ac, char **av)
 {
 	t_fdf	var;
-	// void	*img;
+	int size = 50;
+
 	if (ac != 2)
 		exit(1);
 	var.mlx_win = NULL;
 	var.mlx = NULL;
+	var.h = 0;
+	var.w = 0;
 	var = get_map(var, av[1]);
-	map_check(var);
 	var.map = (int **) malloc (sizeof(int *) * (var.h + 1));
 	var.color = (int **) malloc (sizeof(int *) * (var.h + 1));
 	var = get_altitude(var);
+	
 	var = get_color(var);
+	var.y0 = 0;
+	var.x0 = 0;
 	var.mlx = mlx_init();
 	var.mlx_win = mlx_new_window(var.mlx, 1920, 1080, "fdf");
-	// img = mlx_new_image(var.mlx,1920, 1080);
-	// int i = 500;
-	// int j = 500;
-	// int x = 0;
-	// int	y = 0;
-	// printf("%d---%d",var.w,var.h);
-	// while (x < var.w && y < var.h)
-	// {
-	// 	var= dda(var,i,i+100,j,j);
-	// 	i +=100;
-	// 	x++;
-	// 	y++;
-	// }
+	
+	var.xo = cos(1.0472) * var.h * size ;
+	draw(&var, size);
 	mlx_loop(var.mlx);
 
 }
-	// for(int i = 0; i < var.h;i++)
-	// {
-	// 	for(int j = 0; j < var.w ;j++)
-	// 		printf("%2d ",var.map[i][j]);
-	// 	printf("\n");
-	// }
-	// for(int i = 0; i < var.h;i++)
-	// {
-	// 	for(int j = 0; j < var.w ;j++)
-	// 		printf("%2d ",var.color[i][j]);
-	// 	printf("\n");
-	// }
+
+// void display(t_fdf var)
+// {
+
+// 	for(int i = 0; i < var.h;i++)
+// 	{
+// 		for(int j = 0; j < var.w ;j++)
+// 			printf("%2d ",var.map[i][j]);
+// 		printf("\n");
+// 	}
+// 	printf("\n");
+// 	for(int i = 0; i < var.h;i++)
+// 	{
+// 		for(int j = 0; j < var.w ;j++)
+// 			printf("%2d ",var.color[i][j]);
+// 		printf("\n");
+// 	}
+// }

@@ -30,11 +30,25 @@ typedef struct s_fdf
 	int		**map;
 	int		**color;
 	void	*mlx_win;
+	int		xo;
+	int		yo;
+	int		x0;
+	int		y0;
+	int		x1;
+	int		y1;
+	int		z0;
+	int		z1;
 }t_fdf;
 
+typedef struct s_math
+{
+	int sy;
+	int sx;
+} t_math;
 char	**ft_split(char *s, char c);
 char	*ft_substr(char *s, unsigned int start, size_t len);
 int		ft_atoi(char *str);
-t_fdf dda(t_fdf var,int x1, int x2, int y1, int y2);
+void	bresenham(t_fdf *var, int color, t_math val, int dx, int dy);
+void draw(t_fdf *var, int size);
 
 #endif
