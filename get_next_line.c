@@ -89,7 +89,7 @@ char	*get_rest(char *tmp)
 	rest[i] = '\0';
 	free(tmp);
 	return (rest);
-} 
+}
 
 char	*get_next_line(int fd)
 {
@@ -101,7 +101,6 @@ char	*get_next_line(int fd)
 	tmp = ft_read(fd, tmp);
 	if (!tmp)
 		return (NULL);
-
 	line = get_line(tmp);
 	tmp = get_rest(tmp);
 	return (line);
